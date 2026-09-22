@@ -1,0 +1,145 @@
+.row {
+  display: grid;
+  grid-template-columns: 8.5em 1fr;
+  gap: 4px 12px;
+  align-items: baseline;
+  padding: 6px 0;
+  border-top: 1px solid var(--demo-line);
+}
+
+.row:first-child {
+  border-top: none;
+}
+
+.name {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.nameLabel {
+  font-size: 0.78rem;
+  line-height: 1.35;
+  color: var(--demo-ink-soft);
+}
+
+.primitive {
+  align-self: flex-start;
+  font-family: ui-monospace, 'SFMono-Regular', 'Consolas', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.03em;
+  color: var(--demo-accent);
+  border: 1px solid var(--demo-accent-soft);
+  border-radius: 2px;
+  padding: 0 3px;
+}
+
+.body {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.headlineLine {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  margin: 0;
+}
+
+.headline {
+  font-size: 1.15rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+  color: var(--demo-ink);
+}
+
+.headlineNote {
+  font-size: 0.72rem;
+  color: var(--demo-ink-soft);
+}
+
+.annotation {
+  font-size: 0.7rem;
+  color: var(--demo-ink-faint);
+}
+
+.confidence {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.68rem;
+  color: var(--demo-ink-faint);
+}
+
+.confidence b {
+  font-variant-numeric: tabular-nums;
+  color: var(--demo-ink-soft);
+}
+
+.confTrack {
+  width: 54px;
+  height: 4px;
+  background: var(--demo-line);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.confFill {
+  display: block;
+  height: 100%;
+  background: var(--demo-accent);
+}
+
+.distribution {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1px 0;
+  font-size: 0.7rem;
+  line-height: 1.6;
+}
+
+.entry,
+.entryTop {
+  display: flex;
+  align-items: baseline;
+  gap: 3px;
+}
+
+/* 参考画像にならい、分布は区切り「/」でインラインに並べる */
+.entry:not(:last-child)::after,
+.entryTop:not(:last-child)::after {
+  content: '/';
+  margin: 0 7px;
+  color: var(--demo-line-strong);
+}
+
+.badge {
+  font-variant-numeric: tabular-nums;
+  font-size: 0.62rem;
+  color: var(--demo-ink-faint);
+}
+
+.entryLabel {
+  color: var(--demo-ink-faint);
+}
+
+.entryValue {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  color: var(--demo-ink-soft);
+}
+
+.entryTop .entryLabel {
+  color: var(--demo-ink);
+}
+
+.entryTop .entryValue {
+  color: var(--demo-accent);
+}

@@ -1,0 +1,79 @@
+.values {
+  display: flex;
+  flex-direction: column;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 0;
+  margin: 10px 0 0;
+  padding-top: 9px;
+  border-top: 1px solid var(--demo-line);
+  font-size: 0.68rem;
+  line-height: 1.6;
+  color: var(--demo-ink-faint);
+}
+
+.meta span:not(:last-child)::after {
+  content: '/';
+  margin: 0 8px;
+  color: var(--demo-line-strong);
+}
+
+.meta b {
+  font-weight: 700;
+  color: var(--demo-ink-soft);
+}
+
+.decision {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.verdictLine {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.verdict {
+  flex: none;
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1;
+  padding: 5px 12px;
+  border-radius: 3px;
+  border: 1px solid currentColor;
+}
+
+.plausible {
+  color: var(--demo-ok);
+  background: var(--demo-ok-bg);
+}
+
+.review {
+  color: var(--demo-warn);
+  background: var(--demo-warn-bg);
+}
+
+.unlikely {
+  color: var(--demo-bad);
+  background: var(--demo-bad-bg);
+}
+
+.rule {
+  font-family: ui-monospace, 'SFMono-Regular', 'Consolas', monospace;
+  font-size: 0.67rem;
+  line-height: 1.5;
+  color: var(--demo-ink-faint);
+}
+
+.interpretation {
+  margin: 0;
+  font-size: 0.78rem;
+  line-height: 1.7;
+  color: var(--demo-ink);
+}

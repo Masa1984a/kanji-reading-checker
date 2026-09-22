@@ -1,0 +1,265 @@
+/*
+ * 一画面に収める構成。参考画像 (C:\temp\GOGEN_support\pic.png) にならい、
+ * ダークなヘッダーバー + 2カラム + 番号付きセクションで、値は密なラベル/値の行で並べる。
+ * 配色はこのページのスコープに閉じており、メイン画面 (app/page.module.css) の
+ * 紙・墨の配色には影響しない。
+ */
+.page {
+  --demo-bg: #f4f6f9;
+  --demo-card: #ffffff;
+  --demo-bar: #1b2b4b;
+  --demo-accent: #2557a7;
+  --demo-accent-soft: #b9cbe8;
+  --demo-ink: #17233b;
+  --demo-ink-soft: #46556f;
+  --demo-ink-faint: #7b879c;
+  --demo-line: #e3e8ef;
+  --demo-line-strong: #c9d2e0;
+  --demo-ok: #1d6f42;
+  --demo-ok-bg: #eaf5ee;
+  --demo-warn: #96621a;
+  --demo-warn-bg: #fdf4e4;
+  --demo-bad: #a3342a;
+  --demo-bad-bg: #fbecea;
+
+  min-height: 100vh;
+  background: var(--demo-bg);
+  color: var(--demo-ink);
+  font-family: var(--font-sans-jp);
+  line-height: 1.6;
+}
+
+/* ---- ヘッダーバー ---- */
+
+.bar {
+  background: var(--demo-bar);
+}
+
+.barInner {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: #fff;
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 0.7rem;
+  color: #a9b6cc;
+}
+
+/* ---- レイアウト ---- */
+
+.content {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 12px 20px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(300px, 4fr) minmax(360px, 6fr);
+  gap: 10px;
+  align-items: start;
+}
+
+@media (max-width: 860px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+
+.card {
+  background: var(--demo-card);
+  border: 1px solid var(--demo-line);
+  border-radius: 4px;
+  padding: 12px 16px 14px;
+}
+
+.cardAccent {
+  border: 2px solid var(--demo-accent);
+  padding: 11px 15px 13px;
+}
+
+.cardTitle {
+  margin: 0 0 10px;
+  font-size: 0.83rem;
+  font-weight: 700;
+  color: var(--demo-accent);
+}
+
+/* ---- 入力 ---- */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 10px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.label {
+  font-size: 0.7rem;
+  color: var(--demo-ink-soft);
+}
+
+.input {
+  font-family: inherit;
+  font-size: 0.95rem;
+  padding: 7px 9px;
+  border: 1px solid var(--demo-line-strong);
+  border-radius: 3px;
+  background: #fff;
+  color: var(--demo-ink);
+  min-width: 0;
+}
+
+.input:focus-visible {
+  outline: 2px solid var(--demo-accent);
+  outline-offset: -1px;
+}
+
+.hint {
+  margin: 0;
+  font-size: 0.67rem;
+  line-height: 1.55;
+  color: var(--demo-ink-faint);
+}
+
+.presets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.preset {
+  font-family: inherit;
+  font-size: 0.7rem;
+  line-height: 1.4;
+  padding: 3px 8px;
+  background: #fff;
+  border: 1px solid var(--demo-line-strong);
+  border-radius: 3px;
+  color: var(--demo-ink-soft);
+  cursor: pointer;
+  transition: border-color 0.12s ease, color 0.12s ease;
+}
+
+.preset:not(:disabled):hover {
+  border-color: var(--demo-accent);
+  color: var(--demo-accent);
+}
+
+.preset:focus-visible {
+  outline: 2px solid var(--demo-accent);
+  outline-offset: 1px;
+}
+
+.preset:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.submit {
+  align-self: flex-start;
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 7px 20px;
+  border: 1px solid var(--demo-accent);
+  border-radius: 3px;
+  background: var(--demo-accent);
+  color: #fff;
+  cursor: pointer;
+  transition: opacity 0.12s ease;
+}
+
+.submit:focus-visible {
+  outline: 2px solid var(--demo-bar);
+  outline-offset: 2px;
+}
+
+.submit:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.submit:not(:disabled):hover {
+  opacity: 0.88;
+}
+
+.caption {
+  margin: 9px 0 0;
+  padding-top: 8px;
+  border-top: 1px solid var(--demo-line);
+  font-size: 0.66rem;
+  line-height: 1.6;
+  color: var(--demo-ink-faint);
+}
+
+/* ---- 状態表示 ---- */
+
+.placeholder {
+  margin: 0;
+  font-size: 0.72rem;
+  line-height: 1.7;
+  color: var(--demo-ink-faint);
+}
+
+.placeholder code {
+  font-family: ui-monospace, 'SFMono-Regular', 'Consolas', monospace;
+  font-size: 0.9em;
+  color: var(--demo-accent);
+}
+
+.error {
+  margin: 0;
+  padding: 8px 11px;
+  border: 1px solid var(--demo-bad);
+  border-radius: 3px;
+  background: var(--demo-bad-bg);
+  color: var(--demo-bad);
+  font-size: 0.75rem;
+  line-height: 1.6;
+}
+
+.footer {
+  margin: 0;
+  font-size: 0.66rem;
+  line-height: 1.7;
+  color: var(--demo-ink-faint);
+}
