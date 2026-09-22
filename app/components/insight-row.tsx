@@ -20,8 +20,6 @@ type Props = {
   headlineNote?: string;
   /** noul は confidence を返さないため undefined になる */
   confidence?: number;
-  /** confidence が無い場合に理由を添える */
-  annotation?: string;
   distribution: DistributionEntry[];
 };
 
@@ -35,7 +33,6 @@ export function InsightRow({
   headline,
   headlineNote,
   confidence,
-  annotation,
   distribution,
 }: Props) {
   return (
@@ -51,9 +48,7 @@ export function InsightRow({
           {headlineNote && (
             <span className={styles.headlineNote}>{headlineNote}</span>
           )}
-          {confidence === undefined ? (
-            <span className={styles.annotation}>{annotation}</span>
-          ) : (
+          {confidence !== undefined && (
             <span className={styles.confidence}>
               confidence <b>{formatPercent(confidence)}</b>
               <span className={styles.confTrack}>

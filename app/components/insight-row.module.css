@@ -62,11 +62,6 @@
   color: var(--demo-ink-soft);
 }
 
-.annotation {
-  font-size: 0.7rem;
-  color: var(--demo-ink-faint);
-}
-
 .confidence {
   display: flex;
   align-items: center;

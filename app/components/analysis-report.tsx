@@ -27,7 +27,6 @@ export function JevValues({ analysis }: { analysis: ReadingAnalysis }) {
         name="読みの妥当性"
         primitive="noul"
         headline={formatPercent(analysis.plausibility)}
-        annotation="← noul に confidence はありません"
         distribution={[
           {
             label: '妥当',

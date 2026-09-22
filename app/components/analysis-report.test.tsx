@@ -154,14 +154,15 @@ describe('JevValues', () => {
     expect(occurrences(markup, '>score<')).toBe(3);
   });
 
-  it('noul だけ confidence が無いことを明示する', () => {
-    expect(occurrences(markup, '← noul に confidence はありません')).toBe(1);
+  it('noul には confidence を表示しない', () => {
     // confidence を持つ5観点ぶんだけバーが出る (noul には出ない)
     expect(occurrences(markup, 'width:')).toBe(5);
-    // 5観点の confidence がすべて数値で出ている
+    // 5観点の confidence はすべて数値で出ている
     for (const value of ['58.0%', '79.0%', '83.0%', '86.0%', '72.0%']) {
       expect(markup, value).toContain(value);
     }
+    // noul 行に注記は出さない
+    expect(markup).not.toContain('confidence はありません');
   });
 
   it('score は期待値と最尤段階のラベル、choice は選択ラベルを見出しに出す', () => {
